@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="mauipr9.AddStudentPage">
+
+    <ScrollView>
+        <StackLayout Padding="16">
+            <!-- Фото (в самом верху) -->
+            <Image x:Name="UserPhoto" Source="default_avatar.png"
+                   HeightRequest="150" WidthRequest="150" HorizontalOptions="Center" Margin="0,0,0,16"/>
+            <Button Text="Выбрать фото" Clicked="OnPickPhotoClicked" HorizontalOptions="Center" Margin="0,0,0,16"/>
+
+            <!-- ФИО -->
+            <Label Text="ФИО:" FontAttributes="Bold"/>
+            <Entry x:Name="FullNameEntry" Placeholder="Иванов И.И." Margin="0,0,0,12"/>
+
+            <!-- Пол -->
+            <Label Text="Пол:" FontAttributes="Bold"/>
+            <Picker x:Name="GenderPicker" Title="Выберите пол" Margin="0,0,0,12">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Мужской</x:String>
+                        <x:String>Женский</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <!-- Возраст -->
+            <Label Text="Возраст:" FontAttributes="Bold"/>
+            <Stepper x:Name="AgeStepper" Minimum="16" Maximum="100" Increment="1" Value="18" Margin="0,0,0,4"/>
+            <Label Text="{Binding Source={x:Reference AgeStepper}, Path=Value}"
+                   HorizontalOptions="Center" Margin="0,0,0,12"/>
+
+            <!-- Оценки -->
+            <Label Text="Средний балл:" FontAttributes="Bold"/>
+            <Slider x:Name="GradesSlider" Minimum="2.0" Maximum="5.0" Value="4.0" Margin="0,0,0,4"/>
+            <Label Text="{Binding Source={x:Reference GradesSlider}, Path=Value, StringFormat='Балл: {0:F1}'}"
+                   HorizontalOptions="Center" Margin="0,0,0,12"/>
+
+            <!-- Общежитие и староста -->
+            <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="Center" Margin="0,0,0,16">
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                    <Switch x:Name="DormSwitch" IsToggled="False"/>
+                    <Label Text="Нужно общежитие" VerticalOptions="Center" Margin="5,0"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                    <Switch x:Name="LeaderSwitch" IsToggled="False"/>
+                    <Label Text="Староста" VerticalOptions="Center" Margin="5,0"/>
+                </StackLayout>
+            </StackLayout>
+
+            <!-- Кнопка сохранения -->
+            <Button Text="Сохранить студента" Clicked="OnSaveClicked" HorizontalOptions="Center" WidthRequest="200"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

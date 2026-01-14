@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="mauipr9.LoginPage"
+             Title="Авторизация">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="25">
+
+            <!-- Пароль -->
+            <Label Text="Вход по паролю" FontSize="18" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <Entry x:Name="PasswordEntry" IsPassword="True" Placeholder="Введите пароль (123)" />
+            <Button Text="Войти по паролю" Clicked="OnPasswordLoginClicked" 
+                    BackgroundColor="DodgerBlue" TextColor="White"/>
+
+            <!-- Графический ключ -->
+            <Label Text="Или войдите по графическому ключу:" 
+                   FontSize="18" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,30,0,10"/>
+
+            <Button Text="Нарисовать графический ключ" 
+                    Clicked="OnPatternLoginClicked"
+                    BackgroundColor="Orange" TextColor="White"/>
+
+            <!-- Настройка паттерна -->
+            <Button Text="Задать или изменить графический ключ" 
+                    Clicked="OnSetPatternClicked"
+                    TextColor="Purple" BackgroundColor="Transparent" BorderWidth="0"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

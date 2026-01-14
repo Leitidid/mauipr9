@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="mauipr9.EditStudentPage"
+             Title="Студент">
+
+    <ScrollView>
+        <StackLayout Padding="16">
+            <Image x:Name="UserPhoto" Source="default_avatar.png" HeightRequest="120" WidthRequest="120" HorizontalOptions="Center"/>
+            <Button Text="Выбрать фото" Clicked="OnPickPhotoClicked" HorizontalOptions="Center" Margin="0,0,0,16"/>
+
+            <Entry x:Name="FullNameEntry" Placeholder="ФИО" />
+            <Picker x:Name="GenderPicker" Title="Пол">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Мужской</x:String>
+                        <x:String>Женский</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Label Text="{Binding Source={x:Reference AgeStepper}, Path=Value}" HorizontalOptions="Center"/>
+            <Stepper x:Name="AgeStepper" Minimum="16" Maximum="100" Value="18" />
+
+            <Label Text="{Binding Source={x:Reference GradesSlider}, Path=Value, StringFormat='Балл: {0:F1}'}" HorizontalOptions="Center"/>
+            <Slider x:Name="GradesSlider" Minimum="2.0" Maximum="5.0" Value="4.0" />
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="20" Margin="0,10">
+                <StackLayout Orientation="Horizontal">
+                    <Switch x:Name="DormSwitch"/>
+                    <Label Text="Общежитие" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Switch x:Name="LeaderSwitch"/>
+                    <Label Text="Староста" VerticalOptions="Center"/>
+                </StackLayout>
+            </StackLayout>
+
+            <Button Text="Сохранить" Clicked="OnSaveClicked" BackgroundColor="DodgerBlue" TextColor="White" Margin="0,20"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

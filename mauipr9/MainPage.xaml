@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="mauipr9.MainPage"
+             Title="Профиль студента">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Image x:Name="ProfilePhoto" Source="default_avatar.png" 
+                   HeightRequest="120" WidthRequest="120" HorizontalOptions="Center"/>
+
+            <Label x:Name="FullNameLabel" FontSize="18" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <Label x:Name="GenderLabel"/>
+            <Label x:Name="AgeLabel"/>
+            <Label x:Name="GradesLabel"/>
+            <Label x:Name="DormLabel"/>
+            <Label x:Name="LeaderLabel"/>
+
+            <Button Text="Редактировать данные" Clicked="OnEditClicked" 
+                    BackgroundColor="Orange" TextColor="White" Margin="0,20"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
