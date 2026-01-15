@@ -26,7 +26,7 @@ public partial class LoginPage : ContentPage
 
     private async void OnSetPatternClicked(object sender, EventArgs e)
     {
-        var page = new PatternLockPage();
+        var page = new PatternLockView();
         await Navigation.PushAsync(page);
 
         // ∆дЄм, пока страница закроетс€
@@ -42,7 +42,7 @@ public partial class LoginPage : ContentPage
 
     private async void OnPatternLoginClicked(object sender, EventArgs e)
     {
-        var page = new PatternLockPage();
+        var page = new PatternLockView();
         await Navigation.PushAsync(page);
 
         await WaitForPageClose(page);
